@@ -1,0 +1,1 @@
+java -jar "C:\Program Files\selenium_server\selenium-server-standalone-3.141.59.jar"
