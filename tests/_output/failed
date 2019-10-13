@@ -1,1 +1,1 @@
-tests\acceptance\LoginCest.php:validSubmitForm
+tests\acceptance\LoginCest.php:submitWrongPassword
