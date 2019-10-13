@@ -7,8 +7,11 @@ class Login
     public static $URL = '/en/login';
 
     /**
-     *	UI Map
-	 */ 
+     UI MAP
+	 */
+	 //GENERIC ELEMENTS
+	 public static $alert = '.alert';
+	 
 	 // PRESENT WHEN MAXIMIZED
 	 public static $favicon 			= '/favicon.png';
 	 public static $page_title_txt 		= 'Log in to your account - Paysera';
@@ -17,7 +20,7 @@ class Login
 	 public static $email_textfield 	= "//input[@name='userIdentifier']";
 	 public static $email_login_btn		= "//button[text()='Log in']";
 	 public static $spinner_gif		 	= '.spinner';
-	 public static $wrong_password_msg 	= '.spinner';
+	 public static $wrong_password_msg 	= 'Incorrect password. Please try again.';
 	
 	//PRESENT AFTER CONFIRMING EMAIL
 	 public static $avatar_img			= '.user-avatar';
@@ -36,7 +39,6 @@ class Login
 	 public static $password_textfield		= '#password';
 	 public static $password_login_btn		= "//*[text()='Password']/../../..//button[text()='Log in']";
 	 public static $forgot_password_link	= 'https://bank.paysera.com/en/reset-password';
-	 public static $forgot_password_txt		= 'Incorrect password. Please try again.';
 	 
 	// dont have account yet text
 	// register now link
@@ -115,5 +117,12 @@ class Login
 		$I->click(self::$password_login_btn);
 		$I->waitForElement(self::$spinner_gif);
 		$I->waitForElementNotVisible(self::$spinner_gif);
+	}
+	
+	public function alertPasswordIsWrong()
+	{
+		$I = $this->acceptanceTester;
+		$I->waitForElement(self::$alert);
+		$I->see(self::$wrong_password_msg);
 	}
 }

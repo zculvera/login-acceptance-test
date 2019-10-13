@@ -22,7 +22,13 @@ class LoginCest
 		$I->waitForElement(self::$logout_el);
     }
 	
-	//elements present according to window size
 	//field validation testing
+	public function submitWrongPassword(AcceptanceTester $I, \Page\Acceptance\Login $loginPage)
+    {
+		$loginPage->login('zerahculvera@gmail.com','Password123');
+		$loginPage->alertPasswordIsWrong();
+    }
+
+	//elements present according to window size
 	//broken link testing
 }
